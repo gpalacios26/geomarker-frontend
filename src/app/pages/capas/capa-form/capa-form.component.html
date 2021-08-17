@@ -1,0 +1,53 @@
+<mat-toolbar>
+  <span>{{titulo}}</span>
+</mat-toolbar>
+
+<div class="container-app">
+  <form class="material-form" autocomplete="off" #capaForm="ngForm" [formGroup]="form" (ngSubmit)="guardarDatos()">
+
+    <div class="row">
+      <div class="col-5">
+        <div class="row">
+          <div class="col-10">
+            <h3 style="margin-bottom: 0px;">DATOS GENERALES</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <mat-form-field class="material-full-width">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput formControlName="nombre" required>
+            </mat-form-field>
+          </div>
+          <div class="col-10">
+            <p style="margin-top:10px;">
+              <button mat-raised-button color="primary" type="button"
+                onclick="document.getElementById('flArchivo').click()">
+                <span> CARGAR ÍCONO </span>
+                <mat-icon>photo_camera</mat-icon>
+              </button>
+              <input id="flArchivo" type="file" style="display: none;" (change)="handleUpload($event)">
+            </p>
+            <p style="margin-top:10px;">
+              <img [src]="imageCapa" style="width:80px;height:80px;">
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" mat-raised-button color="primary" class="btn-registrar">
+              <mat-icon>save</mat-icon> {{txtBoton}}
+            </button>
+
+            <button type="button" mat-raised-button color="warn" class="btn-registrar" style="margin-left: 10px;"
+              [routerLink]="['/panel/capas']">
+              <mat-icon>close</mat-icon> Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

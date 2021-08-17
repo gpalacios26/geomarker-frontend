@@ -1,0 +1,52 @@
+<div id="precarga" class="main-wrapper" *ngIf="loader" [style.height.px]="height" (window:resize)="onResize($event)">
+  <div class="box">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
+</div>
+
+<div class="container-map" *ngIf="!loader">
+  <agm-map (mapClick)="closeWindow($event)" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="height"
+    (window:resize)="onResize($event)">
+
+    <agm-marker (markerClick)="selectMarker(infoWindow)" [latitude]="lat" [longitude]="lng"
+      [iconUrl]="'../assets/images/marcador.png'" *ngIf="userLocation">
+      <agm-info-window [isOpen]="false" #infoWindow>
+        <h3>Ubicación Actual</h3>
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker-cluster imagePath="../assets/images/cluster_">
+      <agm-marker (markerClick)="selectMarker(infoWindow)" *ngFor="let ubicacion of ubicaciones; let i = index"
+        [latitude]="ubicacion.latitud" [longitude]="ubicacion.longitud"
+        [iconUrl]="{ url:image_url+ubicacion.capa.icono, scaledSize:{height:50,width:50}}">
+        <agm-info-window #infoWindow>
+          <h3>{{ubicacion.titulo}}</h3>
+          <p>{{ubicacion.direccion}}</p>
+        </agm-info-window>
+      </agm-marker>
+    </agm-marker-cluster>
+
+  </agm-map>
+</div>
+
+<div class="float-btn" *ngIf="!loader">
+  <button mat-fab color="basic" (click)="toogleDiv()">
+    <mat-icon>layers</mat-icon>
+  </button>
+</div>
+
+<div class="float-div" *ngIf="!loader && divLayers">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Capas</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p *ngFor="let capa of capas; let i = index">
+        <mat-checkbox color="warn" [name]="'check-'+capa.idCapa" [value]="capa.idCapa"
+          (change)="changeLayerValue($event)" checked="true">
+          {{capa.nombre}}
+        </mat-checkbox>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
