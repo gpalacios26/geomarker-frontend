@@ -17,7 +17,7 @@ import { ErrorsInterceptor } from './interceptors/errors.interceptor';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 export function tokenGetter() {
-  return sessionStorage.getItem(environment.TOKEN_NAME);
+  return localStorage.getItem(environment.TOKEN_NAME);
 }
 
 export function hostGetter() {

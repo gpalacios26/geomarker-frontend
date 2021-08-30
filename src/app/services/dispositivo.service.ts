@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Ubicacion } from '../models/ubicacion.model';
+import { Dispositivo } from '../models/dispositivo.model';
 import { GenericService } from './generic.service';
 
-const base_url = `${environment.HOST}/api/ubicacion`;
+const base_url = `${environment.HOST}/api/dispositivos`;
 
 @Injectable({
   providedIn: 'root'
 })
-export class UbicacionService extends GenericService<Ubicacion> {
+export class DispositivoService extends GenericService<Dispositivo> {
 
   constructor(
     protected http: HttpClient

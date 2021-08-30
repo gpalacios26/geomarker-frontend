@@ -14,6 +14,8 @@ import { CapasComponent } from './capas/capas.component';
 import { CapaFormComponent } from './capas/capa-form/capa-form.component';
 import { UbicacionesComponent } from './ubicaciones/ubicaciones.component';
 import { UbicacionFormComponent } from './ubicaciones/ubicacion-form/ubicacion-form.component';
+import { DispositivosComponent } from './dispositivos/dispositivos.component';
+import { DispositivoFormComponent } from './dispositivos/dispositivo-form/dispositivo-form.component';
 
 const routes: Routes = [
   {
@@ -33,6 +35,9 @@ const routes: Routes = [
       { path: 'ubicaciones', component: UbicacionesComponent, canActivate: [AdminGuard] },
       { path: 'ubicaciones/registrar', component: UbicacionFormComponent, canActivate: [AdminGuard] },
       { path: 'ubicaciones/editar/:id', component: UbicacionFormComponent, canActivate: [AdminGuard] },
+      { path: 'dispositivos', component: DispositivosComponent, canActivate: [AdminGuard] },
+      { path: 'dispositivos/registrar', component: DispositivoFormComponent, canActivate: [AdminGuard] },
+      { path: 'dispositivos/editar/:id', component: DispositivoFormComponent, canActivate: [AdminGuard] },
     ]
   }
 ];

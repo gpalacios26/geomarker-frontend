@@ -28,6 +28,11 @@ export class MenuService {
           label: 'Ubicaciones',
           link: '/panel/ubicaciones',
           icon: 'add_location_alt'
+        },
+        {
+          label: 'Dispositivos',
+          link: '/panel/dispositivos',
+          icon: 'explore'
         }
       ]
     },

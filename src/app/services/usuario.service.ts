@@ -18,18 +18,20 @@ export class UsuarioService {
   ) { }
 
   get usuario(): Usuario {
-    return JSON.parse(decodeURIComponent(atob(sessionStorage.getItem(user_data))));
+    if (localStorage.getItem(user_data)) {
+      return JSON.parse(decodeURIComponent(atob(localStorage.getItem(user_data))));
+    }
   }
 
   setUsuario() {
-    let access_token = sessionStorage.getItem(environment.TOKEN_NAME);
+    let access_token = localStorage.getItem(environment.TOKEN_NAME);
     let helper = new JwtHelperService();
     let decodedToken = helper.decodeToken(access_token);
     let correo = decodedToken.user_name;
 
     this.cargarPerfil(correo).subscribe(
       usuario => {
-        sessionStorage.setItem(user_data, btoa(encodeURIComponent(JSON.stringify(usuario))));
+        localStorage.setItem(user_data, btoa(encodeURIComponent(JSON.stringify(usuario))));
       }
     );
   }

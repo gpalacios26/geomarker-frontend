@@ -35,7 +35,7 @@ export class ErrorsInterceptor implements HttpInterceptor {
         else if (err.status === 403 || err.status === 401) {
           this.snackBar.open('No tiene permisos para acceder al recurso solicitado', 'ERROR 403', { duration: 2500 });
 
-          sessionStorage.clear();
+          localStorage.clear();
           this.router.navigate(['login']);
         }
         else if (err.status === 500) {

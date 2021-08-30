@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { Usuario } from 'src/app/models/usuario.model';
 import { LoginService } from 'src/app/services/login.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -12,8 +13,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
+  public usuario: Usuario;
   public form: FormGroup;
 
   constructor(
@@ -24,6 +26,11 @@ export class LoginComponent {
     private usuarioService: UsuarioService
   ) {
     this.crearFormulario();
+  }
+
+  ngOnInit(): void {
+    this.usuario = this.usuarioService.usuario;
+    if (this.usuario) this.router.navigate(['panel']);
   }
 
   crearFormulario() {
@@ -46,7 +53,7 @@ export class LoginComponent {
           let decodedToken = helper.decodeToken(response.access_token);
 
           if (decodedToken) {
-            sessionStorage.setItem(environment.TOKEN_NAME, response.access_token);
+            localStorage.setItem(environment.TOKEN_NAME, response.access_token);
             this.usuarioService.setUsuario();
 
             this.snackBar.open('Acceso correcto. Iniciando la sesión...', 'AVISO', { duration: 2000 });

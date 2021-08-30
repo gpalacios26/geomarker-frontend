@@ -25,20 +25,20 @@ export class LoginService {
   }
 
   estaLogueado() {
-    let token = sessionStorage.getItem(environment.TOKEN_NAME);
+    let token = localStorage.getItem(environment.TOKEN_NAME);
     return token != null;
   }
 
   cerrarSesion() {
-    let token = sessionStorage.getItem(environment.TOKEN_NAME);
+    let token = localStorage.getItem(environment.TOKEN_NAME);
 
     if (token) {
       this.http.get(`${base_url}/api/tokens/anular/${token}`).subscribe(() => {
-        sessionStorage.clear();
+        localStorage.clear();
         this.router.navigate(['login']);
       });
     } else {
-      sessionStorage.clear();
+      localStorage.clear();
       this.router.navigate(['login']);
     }
   }

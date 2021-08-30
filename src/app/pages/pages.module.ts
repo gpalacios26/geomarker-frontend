@@ -20,6 +20,8 @@ import { CapasComponent } from './capas/capas.component';
 import { CapaFormComponent } from './capas/capa-form/capa-form.component';
 import { UbicacionesComponent } from './ubicaciones/ubicaciones.component';
 import { UbicacionFormComponent } from './ubicaciones/ubicacion-form/ubicacion-form.component';
+import { DispositivosComponent } from './dispositivos/dispositivos.component';
+import { DispositivoFormComponent } from './dispositivos/dispositivo-form/dispositivo-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { UbicacionFormComponent } from './ubicaciones/ubicacion-form/ubicacion-f
     CapasComponent,
     CapaFormComponent,
     UbicacionesComponent,
-    UbicacionFormComponent
+    UbicacionFormComponent,
+    DispositivosComponent,
+    DispositivoFormComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,7 @@ import { UbicacionFormComponent } from './ubicaciones/ubicacion-form/ubicacion-f
     MaterialModule,
     DialogsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'fdgfdgdfgfdgfdgdfgfdgfddfg'
+      apiKey: 'fdsfdssssssssssssssfsdsfsd'
     }),
     AgmJsMarkerClustererModule
   ],
@@ -58,7 +62,9 @@ import { UbicacionFormComponent } from './ubicaciones/ubicacion-form/ubicacion-f
     CapasComponent,
     CapaFormComponent,
     UbicacionesComponent,
-    UbicacionFormComponent
+    UbicacionFormComponent,
+    DispositivosComponent,
+    DispositivoFormComponent
   ]
 })
 export class PagesModule { }

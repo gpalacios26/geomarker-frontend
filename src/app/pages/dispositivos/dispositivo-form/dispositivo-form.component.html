@@ -1,0 +1,81 @@
+<mat-toolbar>
+  <span>{{titulo}}</span>
+</mat-toolbar>
+
+<div class="container-app">
+  <form class="material-form" autocomplete="off" #dispositivoForm="ngForm" [formGroup]="form"
+    (ngSubmit)="guardarDatos()">
+
+    <div class="row">
+      <div class="col-5">
+        <div class="row">
+          <div class="col-10">
+            <h3 style="margin-bottom: 0px;">DATOS GENERALES</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <mat-form-field class="material-full-width">
+              <mat-label>Código</mat-label>
+              <input type="text" matInput formControlName="codigo" required>
+            </mat-form-field>
+          </div>
+          <div class="col-10">
+            <mat-form-field class="material-full-width">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput formControlName="nombre" required>
+            </mat-form-field>
+          </div>
+          <div class="col-10">
+            <mat-form-field class="material-full-width">
+              <mat-label>Descripción</mat-label>
+              <textarea rows="3" matInput formControlName="descripcion"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <h3 style="margin-bottom: 0px;">DATOS DE ACCESO</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-10">
+            <mat-form-field class="material-full-width">
+              <mat-label>Correo</mat-label>
+              <input type="email" matInput formControlName="correo" required>
+              <mat-error>El campo debe ser único y debe tener formato email</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-9">
+            <mat-form-field class="material-full-width">
+              <mat-label>Token</mat-label>
+              <input type="text" matInput formControlName="token" readonly>
+            </mat-form-field>
+          </div>
+          <div class="col-1">
+            <button type="button" mat-mini-fab color="warn" matTooltip="Nuevo Token" matTooltipPosition="above"
+              (click)="getNewToken()">
+              <mat-icon>refresh</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" mat-raised-button color="primary" class="btn-registrar">
+              <mat-icon>save</mat-icon> {{txtBoton}}
+            </button>
+
+            <button type="button" mat-raised-button color="warn" class="btn-registrar" style="margin-left: 10px;"
+              [routerLink]="['/panel/dispositivos']">
+              <mat-icon>close</mat-icon> Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

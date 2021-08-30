@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate {
     } else {
       //2) VERIFICAR SI EL TOKEN NO HA EXPIRADO
       let helper = new JwtHelperService();
-      let token = sessionStorage.getItem(environment.TOKEN_NAME);
+      let token = localStorage.getItem(environment.TOKEN_NAME);
       if (!helper.isTokenExpired(token)) {
 
         return true;
