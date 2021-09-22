@@ -21,7 +21,7 @@ export function tokenGetter() {
 }
 
 export function hostGetter() {
-  return environment.HOST.substring(7);
+  return environment.DOMAIN.substring(7);
 }
 
 @NgModule({

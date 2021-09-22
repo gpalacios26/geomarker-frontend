@@ -9,13 +9,13 @@
     (window:resize)="onResize($event)">
 
     <agm-marker (markerClick)="selectMarker(infoWindow)" [latitude]="lat" [longitude]="lng"
-      [iconUrl]="'../assets/images/marcador.png'" *ngIf="userLocation">
+      [iconUrl]="'assets/images/marcador.png'" *ngIf="userLocation">
       <agm-info-window [isOpen]="false" #infoWindow>
         <h3>Ubicación Actual</h3>
       </agm-info-window>
     </agm-marker>
 
-    <agm-marker-cluster imagePath="../assets/images/cluster_">
+    <agm-marker-cluster imagePath="assets/images/cluster_">
       <agm-marker (markerClick)="selectMarker(infoWindow)" *ngFor="let ubicacion of ubicaciones; let i = index"
         [latitude]="ubicacion.latitud" [longitude]="ubicacion.longitud"
         [iconUrl]="{ url:image_url+ubicacion.capa.icono, scaledSize:{height:50,width:50}}">

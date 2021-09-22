@@ -43,7 +43,7 @@ export class CapaFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuario = this.usuarioService.usuario;
-    this.imageDefault = '../../../assets/images/no-image.png';
+    this.imageDefault = 'assets/images/no-image.png';
     this.configFormulario();
   }
 

@@ -48,7 +48,7 @@ import { DispositivoFormComponent } from './dispositivos/dispositivo-form/dispos
     MaterialModule,
     DialogsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'fdsfdssssssssssssssfsdsfsd'
+      apiKey: 'fsdfdsfsdfsdfsdgfghgfghgf'
     }),
     AgmJsMarkerClustererModule
   ],
