@@ -6,7 +6,7 @@ import { Menu } from '../dto/menu-dto';
 })
 export class MenuService {
 
-  public itemsAdmin: Menu[] = [
+  private itemsAdmin: Menu[] = [
     {
       label: 'Geo Visor Web',
       link: '/panel/home'
@@ -43,17 +43,12 @@ export class MenuService {
           label: 'Perfil de Usuario',
           link: '/panel/perfil',
           icon: 'account_circle'
-        },
-        {
-          label: 'Cambiar Clave',
-          link: '/panel/clave',
-          icon: 'lock'
         }
       ]
     }
   ];
 
-  public itemsUser: Menu[] = [
+  private itemsUser: Menu[] = [
     {
       label: 'Geo Visor Web',
       link: '/panel/home'
@@ -65,11 +60,6 @@ export class MenuService {
           label: 'Perfil de Usuario',
           link: '/panel/perfil',
           icon: 'account_circle'
-        },
-        {
-          label: 'Cambiar Clave',
-          link: '/panel/clave',
-          icon: 'lock'
         }
       ]
     }

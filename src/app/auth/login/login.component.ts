@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
     let regExCorreo = '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$';
 
     this.form = this.fb.group({
-      usuario: ['', [Validators.required, Validators.pattern(regExCorreo)]],
-      clave: ['', [Validators.required, Validators.minLength(8)]],
+      usuario: ['gregpalacios26@gmail.com', [Validators.required, Validators.pattern(regExCorreo)]],
+      clave: ['Sistemas26', [Validators.required, Validators.minLength(8)]],
     });
   }
 
